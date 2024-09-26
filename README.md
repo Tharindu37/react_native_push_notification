@@ -81,3 +81,28 @@ To learn more about React Native, take a look at the following resources:
 
 ### Notifee
 https://www.npmjs.com/package/@notifee/react-native
+```
+npm install @notifee/react-native
+```
+
+## android setup
+android/app/build.gradle
+```
+dependencies {
+    // Add this line to the existing dependencies
+    implementation 'io.notifee:notifee-react-native:latest'
+}
+```
+AndroidManifest.xml
+```
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.VIBRATE" />
+```
+<application>
+```
+   <application>
+    ...
+    <service android:name="io.notifee.react.NativeNotificationService" android:permission="BIND_JOB_SERVICE" android:exported="true"/>
+    ...
+</application>
+```
